@@ -1,0 +1,225 @@
+ARRAY
+``````
+COLLECTION OF SIMILAR DATA TYPES OF DATA
+
+INT[] ARRAY_NAME;
+EG: INT[] MARKS;
+
+//ALLOCATION MEMORY
+MARKS=NEW INT[5];
+
+//DECLARATION AND MEMORY ALLOCATION IN SIGLE STEPS
+INT[] MARKS=NEW INT[5]
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ARRAYDEMO
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*  //1ST WAY
+              //DECLARATION
+              int[] marks1;
+              //allocating the memory
+              marks1 = new int[5];
+
+
+              //2nd way
+              //declaration and allocation in single
+              int[] mark2= new int[5];
+
+              //ARRAY INTIALISATION------------AT TIME OF DECLARATION
+
+              int[] marks = new int[5] { 10, 20, 30, 40, 50 };//method 1
+              int[] arr = new int[] { 10, 20, 30, 40, 50 };//method2
+              int[] marks3 = { 10, 20, 30, 40, 50, 60 };//method 3
+
+              //or we using index number
+              int[] mark4 = new int[5];
+              mark4[0] = 50;
+              mark4[1] = 60;
+              mark4[2] = 70;
+              mark4[3] = 80;
+
+              //how to acess array elements and update elements
+              Console.WriteLine("marks"+mark4[0]);
+              Console.WriteLine("marks" + mark4[3]);
+
+              ///updating the element the array
+              mark4[2] = 100;
+              Console.WriteLine("marks updated" + mark4[2]);
+
+              //find length
+              Console.WriteLine("lengt of array mark is"+mark4.Length); 
+
+            //traversing the array elements usin the loop---for loop
+            int[] marks = { 10, 20, 30, 40, 50, 60, 70 };
+            for (int i = 0; i < marks.Length; i++)
+            {
+                Console.WriteLine("marks"+(i+1)+":"+marks[i]);
+                           //or string formating model
+                consol.writeline("marks {0} : {1}",i+1,marks[i]);
+            }
+            Console.ReadKey(); 
+
+            //traversing the array elements usin the loop---for each loop
+            //using for each we cant print index directly
+            int[] marks = { 10, 20, 30, 40, 50, 60, 70 };
+            int index = 1;
+            foreach  (int i in marks)
+            {
+                Console.WriteLine("marks" + index + ":" + i);
+                index++;
+            }
+            Console.ReadKey(); */
+
+            //find minimum mark from this
+            int[] marks = { 10, 20, 30, 40, 50, 6, 70 };
+            int temp = marks[0];
+            for (int i = 1; i < marks.Length; i++)
+            {
+                if (marks[i]<temp)
+                {
+                    temp = marks[i];
+                }
+                
+            }
+            Console.WriteLine(temp);
+            Console.ReadKey();
+        }
+    }
+}
+
+IF WE R USING IN BUILT FUNCTION THEN USE SYSTEM.LINQ
+
+
+            //ARRAY OPERATIONS USING SYSTEM.LINQ NAMESPACE
+            int[] marks = { 10, 20, 30, 40, 50, 6, 70 };
+            Console.WriteLine("lowest value"+marks.Min());
+            Console.WriteLine("higest value" + marks.Max());
+            Console.WriteLine("sum value" + marks.Sum());
+            Console.WriteLine("count value" + marks.Count());
+            Console.WriteLine("average value" + marks.Average());
+            Console.ReadKey();
+
+getlength-----------------used to get the length of the row
+getlength[0]-------------------returns no of elements along the 1st dimention----row
+getlength[1]-------------------returns no of elements along the 2nd dimention----column
+
+  //TWO-DIMENTIONAL ARRAY
+            //declaration
+            int[,] arr = new int[2, 3];
+            //int[][] arr1 = new int[2, 3];// cant write ike that copilation time error
+            int[,] arr1 = { { 1, 2, 3 }, { 4, 5, 6 } };//2*3  2row 3 colum row-----,no of elm is colum
+            //for 1 d we need one for loop, but for 2d need 2 for loop
+            //traversing using for loop
+            int rows = arr1.GetLength(0);//--------leng of row
+            int colm = arr1.GetLength(1);//---------leng of column
+            for(int i = 0; i < rows; i++)
+            {
+                for(int j = 0; j < colm; j++)
+                {
+                    Console.Write(arr1[i,j]+"\t");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+
+
+            //using getlength
+            int[,] arr1 = { { 1, 2, 3 }, { 4, 5, 6 } };//2*3  2row 3 colum row-----,no of elm is colum
+            
+            for (int i = 0; i < arr1.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr1.GetLength(1); j++)
+                {
+                    Console.Write(arr1[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();*/
+
+JAGGED ARRY
+````````````
+USED IN WHEN THERE IS EMPLTY ELEMENT IN THE ARRAY
+SYNTAX:'
+  DATATYPE[][] ARRAY_NAME=NEW DATATYPE[ROWS][];
+
+EG:INT[][] ARRI=NEW INT[2][];
+
+
+
+            //JAGGED ARRY------
+            int[][] arr1 = new int[2][];
+            // arr1[0] = new int[3] { 10, 20, 30 };
+            //arr1[1] = new int[2] { 50, 60 };
+            //or
+            //arr1[0] = new int[] { 10, 20, 30,67,90 };
+            //arr1[1] = new int[] { 50, 60 };
+            // dynamicaly elerting the row , in above it says  2 rows
+            int[][] arr2 =
+            {
+                new int[]{10,20,30,40},
+                new int[]{30,40}
+            };
+
+            Console.WriteLine("marksis"+arr2[0][0]);
+            Console.WriteLine("marksis" + arr2[1][1]);
+            Console.WriteLine("marksis" + arr2[1][2]);//error
+
+
+            Console.ReadKey();
+
+
+
+            //JAGGED ARRY------
+            int[][] arr1 = new int[2][];
+            // arr1[0] = new int[3] { 10, 20, 30 };
+            //arr1[1] = new int[2] { 50, 60 };
+            //or
+            //arr1[0] = new int[] { 10, 20, 30,67,90 };
+            //arr1[1] = new int[] { 50, 60 };
+            // dynamicaly elerting the row , in above it says  2 rows
+            int[][] arr2 =
+            {
+                new int[]{10,20,30,40},
+                new int[]{30,40}
+            };
+
+            Console.WriteLine("marksis"+arr2[0][0]);
+            Console.WriteLine("marksis" + arr2[1][1]);
+            Console.WriteLine("marksis" + arr2[1][2]);//error
+
+
+            Console.ReadKey();*/
+
+            int[][] arr2 =
+            {
+                new int[]{10,20,30,40},
+                new int[]{11,12},
+                new int[]{5,10,15},
+                new int[]{6},
+                new int[]{1,2,3,4,5}
+            }; 
+            //traversal
+
+            for (int i = 0; i < arr2.Length; i++)
+            {
+                for (int j = 0; j < arr2[i].Length; j++)
+                {
+                    Console.Write(arr2[i][j] + "\t");  
+                }
+                Console.WriteLine(//);
+            }
+            Console.ReadKey();
+
+        }
+    }
+}
